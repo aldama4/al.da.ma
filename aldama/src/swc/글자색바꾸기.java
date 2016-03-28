@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
-import java.util.Locale.FilteringMode;
 
 public class 글자색바꾸기 {
 	static int T, N;
