@@ -6,14 +6,14 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class 글자색바꾸기 {
+public class Jade_20160326_2 {
 	static int T, N;
 	static int INF = 201;
 	static ArrayList<Character> filteredList;
 	static HashSet<Character> charSet = new HashSet<Character>();
 	static String[] W = new String[200];
 	public static void main(String[] args) throws Exception{
-		System.setIn(new FileInputStream("resources/swc/글자색바꾸기입력.txt"));
+		System.setIn(new FileInputStream("resources/swc/20160326_2_input.txt"));
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -21,6 +21,7 @@ public class 글자색바꾸기 {
 		int answer;
 		ArrayList<Character> selectedChar;
 		for(int tc=1;tc<=T;tc++){
+			long start = System.currentTimeMillis();
 			charSet.clear();
 			filteredList = new ArrayList<Character>();
 			selectedChar = new ArrayList<Character>();
@@ -34,10 +35,13 @@ public class 글자색바꾸기 {
 			
 			answer = selectChar(selectedChar, 0);
 			System.out.println("#"+tc+" "+answer);
+			long end = System.currentTimeMillis();
+			System.out.println(end-start);
 		}
 	}
 	private static int selectChar(ArrayList<Character> selectedChar, int idx) {
 		int ret;
+		int temp;
 		if(idx == filteredList.size()){
 			if(canColorEveryWords(selectedChar)){
 				return selectedChar.size();
@@ -47,7 +51,8 @@ public class 글자색바꾸기 {
 		
 		ret = selectChar(selectedChar, idx+1);
 		selectedChar.add(filteredList.get(idx));
-		ret = Math.min(ret, selectChar(selectedChar, idx+1));
+		temp = selectChar(selectedChar, idx+1);
+		ret = ret > temp?temp:ret;
 		selectedChar.remove(filteredList.get(idx));
 		return ret;
 	}
@@ -68,9 +73,7 @@ public class 글자색바꾸기 {
 		return true;
 	}
 	private static void setChar(String word) {
-		HashSet<Character> temp = new HashSet<Character>();
 		char c;
-	
 		for(int j=0;j<word.length();j++){
 			c = word.charAt(j);
 			if(c !='a' && c != 'e' && c!= 'i' && c != 'o' && c != 'u')
