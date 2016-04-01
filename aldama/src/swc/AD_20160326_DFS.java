@@ -33,6 +33,7 @@ public class AD_20160326_DFS {
 		Scanner sc = new Scanner(System.in);
 		int T = sc.nextInt();
 		while (T-- > 0) {
+			 long startTime = System.currentTimeMillis();
 			usedAlphabets = new ArrayList<UsedAlphabet>();
 			minCount = Integer.MAX_VALUE;
 			n = sc.nextInt();
@@ -51,7 +52,7 @@ public class AD_20160326_DFS {
 				}
 			}
 
-//			 long startTime = System.currentTimeMillis();
+
 			for (int i = 0; i < 26; i++)
 				if (stats[i] != 0)
 					usedAlphabets.add(new UsedAlphabet(i, stats[i]));
@@ -65,7 +66,7 @@ public class AD_20160326_DFS {
 
 			search(-1, 0, new boolean[n]);
 			System.out.println(minCount);
-//			printInformation(startTime);
+			printInformation(startTime);
 		}
 	}
 
