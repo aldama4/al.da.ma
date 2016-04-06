@@ -3,8 +3,8 @@ package swc.graph;
 import java.io.FileInputStream;
 import java.util.ArrayDeque;
 import java.util.Scanner;
-
-public class MovingHorse_Jade_Yet {
+// 집에서 푼거
+public class MovingHorse_Jade_1 {
 
 	static int[][] orderTable,horseTable;
 	static ArrayDeque<int[]> queue;

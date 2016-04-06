@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.util.ArrayDeque;
 import java.util.Scanner;
 
+// 회사와서 회고하며 다듬은 거
 public class MovingHorse_Jade_2 {
 	static int[][] orderTable, horseTable;
 	static boolean[][] visited;
