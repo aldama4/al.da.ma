@@ -50,8 +50,8 @@ public class BoardGameExample {
 				}
 			}
 			// 솔루션 출력
-			 printSolution(p, num - 1);
-			 System.out.println();
+//			 printSolution(p, num - 1);
+//			 System.out.println();
 			System.out.println("#" + test_case + " " + Answer);
 		}
 	}
