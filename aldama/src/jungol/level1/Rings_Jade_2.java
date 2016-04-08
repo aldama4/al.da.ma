@@ -1,7 +1,6 @@
 package jungol.level1;
 
 import java.io.FileInputStream;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -66,6 +65,26 @@ import java.util.Scanner;
 public class Rings_Jade_2 {
 
 	public static void main(String[] args) throws Exception{
-		System.setIn(new FileInputStream(""));
+		System.setIn(new FileInputStream("resources/jungol/level1_rings_input.txt"));
+		Scanner sc = new Scanner(System.in);
+		
+		char[] key = sc.next().toCharArray();
+		char[] dev = sc.next().toCharArray();
+		char[] ang = sc.next().toCharArray();
+		
+		int[][] data = new int[30][2];
+		data[0][0] = 1;
+		data[0][1] = 1;
+		for(int i = 0;i<dev.length;i++){
+			for(int j=key.length-1;j>=0;j--){
+				if(dev[i] == key[j]){
+					data[j+1][1] += data[j][0];
+				}
+				if(ang[i] == key[j]){
+					data[j+1][0] += data[j][1];
+				}
+			}
+		}
+		System.out.println(data[key.length][0] + data[key.length][1]);
 	}
 }
