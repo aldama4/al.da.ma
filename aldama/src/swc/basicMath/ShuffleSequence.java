@@ -30,7 +30,50 @@ import java.util.Scanner;
  */
 public class ShuffleSequence {
 	public static void main(String[] args) throws Exception{
-		System.setIn(new FileInputStream("resources/jungol/basicMath_suffleSequence_input.txt"));
+		System.setIn(new FileInputStream("resources/jungol/basicMath_shuffleSequence_input.txt"));
 		Scanner sc = new Scanner(System.in);
+		
+		int N = sc.nextInt();
+		int[] data = new int[N];
+		int[] seq = new int[N];
+		boolean[] checker = new boolean[N];
+		for(int i=0;i<N;i++){
+			data[i] = sc.nextInt();		
+		}
+		int cnt = 0, idx=0, i=0, sIndex=0;
+		while(isNotCompleted(checker)){
+			if(checker[idx]){
+				idx = ++i;
+				continue;
+			}
+			cnt++;
+			checker[idx] = true;
+			idx = data[idx]-1;
+			if(idx == i){
+				seq[sIndex++] = cnt;
+				idx = ++i;
+				cnt = 0;
+			}
+		}
+		Arrays.sort(seq, 0, sIndex);
+		int max = seq[sIndex-1];
+		loop : for(int n=1;;n++){
+			for(i=0;i<sIndex;i++){
+				if((n*max)%seq[i]!=0){
+					continue loop;
+				}
+			}
+			System.out.println(n*max);
+			return;
+		}
+	}
+
+	private static boolean isNotCompleted(boolean[] checker) {
+		for (boolean b : checker) {
+			if(!b){
+				return true;
+			}
+		}
+		return false;
 	}
 }
