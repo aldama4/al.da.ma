@@ -1,0 +1,8 @@
+A : 1
+AM : 2
+DOG : 4
+I : 2
+AM : 1
+I : 1
+JUNGOL : 2
+OLYMPIAD : 2

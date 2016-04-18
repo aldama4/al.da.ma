@@ -1,0 +1,5 @@
+prime number
+composite number
+composite number
+composite number
+prime number
