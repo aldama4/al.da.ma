@@ -1,4 +1,4 @@
-package swc.basicMath;
+package jungol.basicMath;
 
 import java.io.FileInputStream;
 import java.util.ArrayDeque;
